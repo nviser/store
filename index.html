@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Store</title>
-    <link rel="stylesheet" type="text/css" href="app/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/angular-route.min.js"></script>
+    <script src="assets/libs/angular-resource.min.js"></script>
+    <script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="app/store.module.js"></script>
+    <script src="app/service/service.js"></script>
+    <script src="app/init/config.js"></script>
+    <script src="app/list.component/productListCtrl.js"></script>
 </head>
-<body>
+<body >
     <h1>Product list</h1>
     <ul>
         <li></li>
     </ul>
-    <div >
-
+    <div ng-view>
     </div>
+        
 </body>
 </html>

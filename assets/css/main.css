@@ -1,2 +1,15 @@
-.warn{background:lightpink;border:2px solid darkslateblue}.success{background:darkseagreen;border:2px solid palegoldenrod}.notification{color:orangered}
+.warn {
+  background: lightpink;
+  border: 2px solid darkslateblue; }
+
+.success {
+  background: darkseagreen;
+  border: 2px solid palegoldenrod; }
+
+.notification {
+  color: orangered; }
+
+.text-success {
+  color: lightgreen; }
+
 /*# sourceMappingURL=main.css.map */

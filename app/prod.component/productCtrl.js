@@ -1,29 +1,32 @@
 angular.module('store').controller('productCtrl', ['storeFactory', '$route', '$scope', '$location', '$routeParams',
     function (factory, $route, $scope, $location, $routeParams) {
-        $scope.editProduct = false;
+        $scope.editProduct = $scope.saved = false;
         var id = $routeParams['id'];
         var products = JSON.parse(localStorage.getItem('products'));
         angular.forEach(products, function (value, key) {
             if (value.id == id) {
                 $scope.product = value;
+                $scope.key = key;
             }
         });
         $scope.edit = function() {
             $scope.editProduct = true;
+            $scope.saved = false;
         }
         $scope.addProd = function(arg){
-        if($scope.id && $scope.name && $scope.description && $scope.price){
+        if($scope.product.id && $scope.product.name && $scope.product.description && $scope.product.price){
             $scope.notification = false;
         var newProd = {
-            id: $scope.id,
-            name: $scope.name,
-            description: $scope.description,
-            price: $scope.price
+            id: $scope.product.id,
+            name: $scope.product.name,
+            description: $scope.product.description,
+            price: $scope.product.price
         };
-        $scope.products = JSON.parse(localStorage.getItem('products'));
-        $scope.products.push(newProd);
-        var str = JSON.stringify($scope.products);
+        products.splice($scope.key, 1, newProd);
+        var str = JSON.stringify(products);
         localStorage.setItem('products', str);
+        $scope.editProduct = false;
+        $scope.saved = true;
         } else {
             $scope.notification = true;
         }

@@ -1,7 +1,6 @@
 angular.module('store').controller('customCtrl', ['storeFactory', '$route', '$scope', '$location', '$routeParams',
     function (factory, $route, $scope, $location, $routeParams) {
-           $scope.notification = false;
-           //$scope.products = [];
+           $scope.notification = $scope.saved = false;
        $scope.addProd = function(arg){
         if($scope.id && $scope.name && $scope.description && $scope.price){
             $scope.notification = false;
@@ -15,6 +14,7 @@ angular.module('store').controller('customCtrl', ['storeFactory', '$route', '$sc
         $scope.products.push(newProd);
         var str = JSON.stringify($scope.products);
         localStorage.setItem('products', str);
+        $scope.saved = true;
         } else {
             $scope.notification = true;
         }

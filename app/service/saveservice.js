@@ -1,4 +1,4 @@
-angular.module('store').factory('saveFactory', ['id', 'name', 'descr', 'price', saveFactory]);
+angular.module('store').factory('saveFactory', saveFactory);
 function saveFactory(id, name, descr, price) {
     factory = [
 

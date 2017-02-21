@@ -1,5 +1,6 @@
 <h1>product list</h1>
 <a href="#/create">Create product</a> 
 <ul>
-    <li ng-repeat="product in products" ng-click="moveTo(product)">{{product.id}} {{product.name}} {{product.description}} {{product.price | currency}}</li>
-</ul>
+    <li ng-repeat-start="product in products" ng-click="moveTo(product)">{{product.id}} {{product.name}} {{product.description}} {{product.price | currency}} </li>
+    <div ng-repeat-end=""><button ng-click="edit(product)">Edit</button><button ng-click="delete(product)">Delete</button></div>
+</ul> 

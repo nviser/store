@@ -21,4 +21,4 @@ angular.module('store').factory('storeFactory', storeFactory);
             }
         ]
         return factory;
-    }
+    };

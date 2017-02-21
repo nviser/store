@@ -5,3 +5,13 @@
     <li>{{product.description}}</li>
     <li>{{product.price | currency}}</li>
 </ul>
+<!--<form name="createForm" ng-submit="addProd()" ng-if="editProduct">
+    <input name="ident" type="number" ng-model="product.id" placeholder="id" pattern="\d+" ng-class="{'warn' : createForm.ident.$touched && createForm.ident.$invalid}">
+    <input name="name" type="text" ng-model="product.name" placeholder="name" maxlength="15" ng-class="{'warn' : createForm.name.$touched && createForm.name.$invalid}">
+    <input name="description" type="text" ng-model="product.description" placeholder="description" minlength="10" ng-class="{'warn' : createForm.description.$touched && createForm.description.$invalid}">
+    <input name="price" type="number" ng-model="product.price" placeholder="price" pattern="\d{2}" ng-class="{'warn' : createForm.price.$touched && createForm.price.$invalid}">
+    <button type="submit">Save</button>
+</form>
+<div ng-if="notification" class="notification">Fill out all fields, please</div>
+<a href="#/">Back</a>-->
+<button ng-click="edit()">Edit</button>

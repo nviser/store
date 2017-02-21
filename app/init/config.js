@@ -5,7 +5,7 @@ angular.module('store').config(['$routeProvider',
               templateUrl: "app/list.component/products.html",
               controller: "productListCtrl"
           })
-          .when('/product', {
+          .when('/product/:id', {
               templateUrl: "app/list.component/product.html",
               controller: "productCtrl"
           }).otherwise({

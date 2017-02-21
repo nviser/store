@@ -4,17 +4,20 @@ angular.module('store').factory('storeFactory', storeFactory);
             {
                 id: 1,
                 name: "Trainers",
-                description: "Light and cosy"
+                description: "Light and cosy",
+                price: 100
             },
             {
                 id: 2,
                 name: "Jeans",
-                description: "Comfortable to weare"
+                description: "Comfortable to weare",
+                price: 120
             },
             {
                 id: 3,
                 name: "Trousers",
-                description: "Good fashioned"
+                description: "Good fashioned",
+                price: 95
             }
         ]
         return factory;

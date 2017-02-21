@@ -7,8 +7,8 @@ angular.module('store').config(['$routeProvider',
           })
           .when('/product', {
               templateUrl: "app/list.component/product.html",
-              controller: "productListCtrl"
-          })/*.otherwise({
-              redirectTo: "/products"
-          })  */    
+              controller: "productCtrl"
+          }).otherwise({
+              redirectTo: "/"
+          })      
   }]);

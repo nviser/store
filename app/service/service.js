@@ -1,5 +1,5 @@
-angular.module('storeFactory',['store']).factory('storeFactory', storeFactory);
-    var storeFactory = function () {
+angular.module('store').factory('storeFactory', storeFactory);
+    function storeFactory () {
         factory = [
             {
                 id: 1,

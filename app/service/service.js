@@ -10,7 +10,7 @@ angular.module('store').factory('storeFactory', storeFactory);
             {
                 id: 2,
                 name: "Jeans",
-                description: "Comfortable to weare",
+                description: "Comfortable to wear",
                 price: 120
             },
             {

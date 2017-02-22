@@ -1,22 +1,41 @@
-angular.module('store').controller('customCtrl', ['storeFactory', '$route', '$scope', '$location', '$routeParams',
-    function (factory, $route, $scope, $location, $routeParams) {
-           $scope.notification = $scope.saved = false;
-       $scope.addProd = function(arg){
-        if($scope.id && $scope.name && $scope.description && $scope.price){
-            $scope.notification = false;
-        var newProd = {
-            id: $scope.id,
-            name: $scope.name,
-            description: $scope.description,
-            price: $scope.price
-        };
-        $scope.products = JSON.parse(localStorage.getItem('products'));
-        $scope.products.push(newProd);
-        var str = JSON.stringify($scope.products);
-        localStorage.setItem('products', str);
-        $scope.saved = true;
-        } else {
-            $scope.notification = true;
+angular.module('store').controller('customCtrl', ['$scope',
+    function ($scope) {
+        $scope.notification = $scope.saved = false;
+        var products = JSON.parse(localStorage.getItem('products'));
+        $scope.logo = 'noimg.jpg';
+        $scope.part = '../../assets/img/';
+        $scope.addProd = function (arg) {
+            $scope.warn = false;
+            if ($scope.logo && $scope.id && $scope.name && $scope.description && $scope.price) {
+                angular.forEach(products, function (value, key) {
+                    if (value.id == $scope.id && $scope.key != key) {
+                        $scope.warn = true;
+                    }
+                });
+                if (!$scope.warn) {
+                $scope.notification = false;
+                    var newProd = {
+                        id: $scope.id,
+                        name: $scope.name,
+                        description: $scope.description,
+                        price: $scope.price,
+                        img: $scope.logo
+                    };
+                    $scope.products = JSON.parse(localStorage.getItem('products'));
+                    $scope.products.push(newProd);
+                    var str = JSON.stringify($scope.products);
+                    localStorage.setItem('products', str);
+                    $scope.saved = true;
+                }
+            } else {
+                $scope.notification = true;
+            }
         }
-       }
+        $scope.saveLogo = function (e) {
+            $scope.logo = e.files[0].name;
+            $scope.path = $scope.part + $scope.logo;
+            $scope.$apply();
+        }
+        $scope.path = $scope.part + $scope.logo;
+
     }]);

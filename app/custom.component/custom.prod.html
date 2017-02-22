@@ -1,4 +1,6 @@
 <form name="createForm" ng-submit="addProd()">
+    <img ng-src="{{path}}" alt="prod-img" style="width: 100px; height: 100px;">
+    <input name="img" type="file" ng-model="img" onchange="angular.element(this).scope().saveLogo(this)">
     <input name="ident" type="number" ng-model="id" placeholder="id" pattern="\d+" ng-class="{'warn' : createForm.ident.$touched && createForm.ident.$invalid}">
     <input name="name" type="text" ng-model="name" placeholder="name" maxlength="15" ng-class="{'warn' : createForm.name.$touched && createForm.name.$invalid}">
     <input name="description" type="text" ng-model="description" placeholder="description" minlength="10" ng-class="{'warn' : createForm.description.$touched && createForm.description.$invalid}">
@@ -6,6 +8,6 @@
     <button type="submit" ng-if="!saved">Save</button>
 </form>
 <div ng-if="notification" class="notification">Fill out all fields, please</div>
+<div ng-if="warn" class="notification">Product with such <strong>id</strong> is used, choose another <strong>id</strong></div>
 <a href="#/">Back</a>
 <h4 class="text-success" ng-if="saved">New product successfully added</h4>
-<!--(createForm.ident.$valid && createForm.name.$valid && createForm.description.$valid && createForm.price.$valid) &&  !createForm.$empty-->

@@ -1,11 +1,13 @@
 <h2>single product</h2>
 <ul>
+    <img ng-src="{{path}}" alt="prod-img" style="width: 100px; height: 100px;">
     <li>{{product.id}}</li>
     <li>{{product.name}}</li>
     <li>{{product.description}}</li>
     <li>{{product.price | currency}}</li>
 </ul>
 <form name="createForm" ng-submit="addProd()" ng-if="editProduct">
+    <input name="img" type="file" onchange="angular.element(this).scope().saveLogo(this)">
     <input name="ident" type="number" ng-model="product.id" placeholder="id" pattern="\d+" ng-class="{'warn' : createForm.ident.$touched && createForm.ident.$invalid}">
     <input name="name" type="text" ng-model="product.name" placeholder="name" maxlength="15" ng-class="{'warn' : createForm.name.$touched && createForm.name.$invalid}">
     <input name="description" type="text" ng-model="product.description" placeholder="description" minlength="10" ng-class="{'warn' : createForm.description.$touched && createForm.description.$invalid}">
@@ -13,6 +15,7 @@
     <button type="submit">Save</button>
 </form>
 <div ng-if="notification" class="notification">Fill out all fields, please</div>
+<div ng-if="warn" class="notification">Product with such <strong>id</strong> is used, choose another <strong>id</strong></div>
 <h4 class="text-success" ng-if="saved">Successfully saved</h4>
 <a href="#/">Back</a>
 <button ng-click="edit()" ng-if="!editProduct">Edit</button>

@@ -1,5 +1,5 @@
-angular.module('store').controller('productCtrl', ['storeFactory', '$route', '$scope', '$location', '$routeParams',
-    function (factory, $route, $scope, $location, $routeParams) {
+angular.module('store').controller('productCtrl', ['$scope', '$location', '$routeParams',
+    function ($scope, $location, $routeParams) {
         $scope.editProduct = $scope.saved = false;
         $scope.part = '../../assets/img/';
         var id = $routeParams['id'];

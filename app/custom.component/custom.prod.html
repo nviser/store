@@ -8,6 +8,7 @@
     <button type="submit" ng-if="!saved">Save</button>
 </form>
 <div ng-if="notification" class="notification">Fill out all fields, please</div>
+<div ng-if="fails" class="notification">Limit for image is 400x400</div>
 <div ng-if="warn" class="notification">Product with such <strong>id</strong> is used, choose another <strong>id</strong></div>
 <a href="#/">Back</a>
 <h4 class="text-success" ng-if="saved">New product successfully added</h4>
